@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox Scripts Hub</title>
+    <title>OVERKILLHUB | Roblox Scripts</title>
     <style>
         * {
             box-sizing: border-box;
@@ -12,54 +12,163 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            background-color: #0f1117;
-            color: #e1e6ed;
+            background-color: #0b0c10;
+            color: #c5c6c7;
             padding: 20px;
             display: flex;
             flex-direction: column;
             align-items: center;
+            min-height: 100vh;
         }
 
+        /* HEADER SECTION */
         header {
             text-align: center;
-            margin: 40px 0;
-        }
-
-        header h1 {
-            font-size: 2.5rem;
-            color: #00e676;
-            margin-bottom: 10px;
-        }
-
-        header p {
-            color: #9aa5b1;
-        }
-
-        .container {
+            margin: 40px 0 20px 0;
             width: 100%;
             max-width: 800px;
         }
 
+        .brand-title {
+            font-size: 3rem;
+            font-weight: 900;
+            color: #66fcf1;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .status-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-bottom: 25px;
+        }
+
+        /* STATUS BUBBLE */
+        .status-bubble {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background-color: #1f2833;
+            border: 1px solid #45a29e;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #ffffff;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .green-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #00ff66;
+            border-radius: 50%;
+            box-shadow: 0 0 8px #00ff66;
+        }
+
+        /* COUNTER BUBBLE */
+        .execution-counter {
+            background-color: #1f2833;
+            border: 1px solid #333;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: #66fcf1;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* BUTTONS */
+        .btn-group {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.2s ease-in-out;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: #66fcf1;
+            color: #0b0c10;
+        }
+
+        .btn-primary:hover {
+            background-color: #45a29e;
+            color: #ffffff;
+            box-shadow: 0 0 15px rgba(102, 252, 241, 0.4);
+        }
+
+        .btn-discord {
+            background-color: #5865F2;
+            color: #ffffff;
+        }
+
+        .btn-discord:hover {
+            background-color: #4752C4;
+            box-shadow: 0 0 15px rgba(88, 101, 242, 0.4);
+        }
+
+        /* MAIN CONTAINER */
+        .container {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 30px;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #1f2833;
+            padding-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* SCRIPT CARDS */
         .script-card {
-            background-color: #1a1d26;
-            border: 1px solid #2d3342;
-            border-radius: 10px;
+            background-color: #1f2833;
+            border: 1px solid #2c3e50;
+            border-radius: 8px;
             padding: 20px;
             margin-bottom: 25px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         .script-title {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             color: #ffffff;
             margin-bottom: 8px;
         }
 
         .script-desc {
-            color: #9aa5b1;
-            font-size: 0.95rem;
+            color: #c5c6c7;
+            font-size: 0.9rem;
             margin-bottom: 15px;
+            line-height: 1.4;
         }
 
         .code-box {
@@ -67,84 +176,117 @@
             background-color: #0b0c10;
             border-radius: 6px;
             padding: 15px;
-            overflow-x: auto;
+            border: 1px solid #111;
         }
 
         pre {
             font-family: 'Consolas', 'Courier New', monospace;
-            color: #f8f8f2;
-            font-size: 0.9rem;
+            color: #66fcf1;
+            font-size: 0.85rem;
             white-space: pre-wrap;
             word-break: break-all;
+            padding-right: 70px;
         }
 
         .copy-btn {
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: #00e676;
-            color: #000;
+            background-color: #45a29e;
+            color: #ffffff;
             border: none;
-            padding: 6px 12px;
+            padding: 8px 14px;
             border-radius: 4px;
+            font-size: 0.8rem;
             font-weight: bold;
             cursor: pointer;
+            text-transform: uppercase;
             transition: background 0.2s;
         }
 
         .copy-btn:hover {
-            background-color: #00b359;
+            background-color: #66fcf1;
+            color: #0b0c10;
         }
 
+        /* FOOTER */
         footer {
-            margin-top: 40px;
-            color: #627d98;
+            margin-top: auto;
+            padding: 40px 0 20px 0;
+            text-align: center;
+            color: #666;
             font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
         }
     </style>
 </head>
 <body>
 
     <header>
-        <h1>⚡ My Roblox Scripts</h1>
-        <p>Copy loadstrings or source code for your favorite Roblox games below!</p>
-    </header>
+        <h1 class="brand-title">OVERKILLHUB</h1>
 
-    <div class="container">
-
-        <!-- SCRIPT 1 -->
-        <div class="script-card">
-            <h2 class="script-title">🚀 Auto Farm Script (Game Name)</h2>
-            <p class="script-desc">Includes Infinite Jump, Speed Boost, and Auto-Farm features. Works on Solara / Wave / Arceus X.</p>
-            
-            <div class="code-box">
-                <button class="copy-btn" onclick="copyScript('script1')">Copy</button>
-                <pre id="script1">loadstring(game:HttpGet("https://raw.githubusercontent.com/yourusername/your-repo/main/autofarm.lua"))()</pre>
+        <div class="status-container">
+            <div class="status-bubble">
+                <span class="green-dot"></span>
+                SCRIPT ONLINE
+            </div>
+            <div class="execution-counter">
+                TOTAL EXECUTIONS: 20,000+
             </div>
         </div>
 
-        <!-- SCRIPT 2 -->
+        <div class="btn-group">
+            <a href="#scripts" class="btn btn-primary">GET THE SCRIPT</a>
+            <a href="https://discord.gg/YOURDISCORDLINK" target="_blank" class="btn btn-discord">JOIN DISCORD</a>
+        </div>
+    </header>
+
+    <div class="container" id="scripts">
+        <h2 class="section-title">Available Scripts</h2>
+
+        <!-- SCRIPT 1: MM2 -->
         <div class="script-card">
-            <h2 class="script-title">✨ ESP & Aimbot Script</h2>
-            <p class="script-desc">Universal FPS script for combat and shooter games.</p>
+            <h3 class="script-title">Murder Mystery 2 (MM2)</h3>
+            <p class="script-desc">Features: Auto Farm Coins, Silent Aim, ESP (Murderer/Sheriff/Hero), Kill All, Speed Hack.</p>
             
             <div class="code-box">
-                <button class="copy-btn" onclick="copyScript('script2')">Copy</button>
-                <pre id="script2">loadstring(game:HttpGet("https://raw.githubusercontent.com/yourusername/your-repo/main/esp.lua"))()</pre>
+                <button class="copy-btn" onclick="copyScript('mm2-script', this)">Copy</button>
+                <pre id="mm2-script">loadstring(game:HttpGet("https://raw.githubusercontent.com/yourusername/your-repo/main/mm2.lua"))()</pre>
+            </div>
+        </div>
+
+        <!-- SCRIPT 2: ADOPT ME -->
+        <div class="script-card">
+            <h3 class="script-title">Adopt Me</h3>
+            <p class="script-desc">Features: Auto Farm Bucks, Auto Baby, Auto Pet Task, Teleports, Vehicle Spawner.</p>
+            
+            <div class="code-box">
+                <button class="copy-btn" onclick="copyScript('adoptme-script', this)">Copy</button>
+                <pre id="adoptme-script">loadstring(game:HttpGet("https://raw.githubusercontent.com/yourusername/your-repo/main/adoptme.lua"))()</pre>
             </div>
         </div>
 
     </div>
 
     <footer>
-        <p>Created with GitHub Pages • Always test scripts in alt accounts first.</p>
+        <p>NOT AFFILIATED WITH ROBLOX. USE AT YOUR OWN RISK.</p>
     </footer>
 
     <script>
-        function copyScript(id) {
-            const code = document.getElementById(id).innerText;
-            navigator.clipboard.writeText(code).then(() => {
-                alert("Script copied to clipboard!");
+        function copyScript(elementId, button) {
+            const textToCopy = document.getElementById(elementId).innerText;
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                const originalText = button.innerText;
+                button.innerText = "COPIED!";
+                button.style.backgroundColor = "#00ff66";
+                button.style.color = "#000000";
+
+                setTimeout(() => {
+                    button.innerText = originalText;
+                    button.style.backgroundColor = "#45a29e";
+                    button.style.color = "#ffffff";
+                }, 2000);
             }).catch(err => {
                 console.error("Failed to copy script: ", err);
             });
