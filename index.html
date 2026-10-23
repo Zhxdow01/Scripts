@@ -3,10 +3,153 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Website</title>
+    <title>Roblox Scripts Hub</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f1117;
+            color: #e1e6ed;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            margin: 40px 0;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            color: #00e676;
+            margin-bottom: 10px;
+        }
+
+        header p {
+            color: #9aa5b1;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .script-card {
+            background-color: #1a1d26;
+            border: 1px solid #2d3342;
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .script-title {
+            font-size: 1.5rem;
+            color: #ffffff;
+            margin-bottom: 8px;
+        }
+
+        .script-desc {
+            color: #9aa5b1;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .code-box {
+            position: relative;
+            background-color: #0b0c10;
+            border-radius: 6px;
+            padding: 15px;
+            overflow-x: auto;
+        }
+
+        pre {
+            font-family: 'Consolas', 'Courier New', monospace;
+            color: #f8f8f2;
+            font-size: 0.9rem;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #00e676;
+            color: #000;
+            border: none;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .copy-btn:hover {
+            background-color: #00b359;
+        }
+
+        footer {
+            margin-top: 40px;
+            color: #627d98;
+            font-size: 0.85rem;
+        }
+    </style>
 </head>
 <body>
-    <h1>Hello, World!</h1>
-    <p>My website is officially live on GitHub Pages!</p>
+
+    <header>
+        <h1>⚡ My Roblox Scripts</h1>
+        <p>Copy loadstrings or source code for your favorite Roblox games below!</p>
+    </header>
+
+    <div class="container">
+
+        <!-- SCRIPT 1 -->
+        <div class="script-card">
+            <h2 class="script-title">🚀 Auto Farm Script (Game Name)</h2>
+            <p class="script-desc">Includes Infinite Jump, Speed Boost, and Auto-Farm features. Works on Solara / Wave / Arceus X.</p>
+            
+            <div class="code-box">
+                <button class="copy-btn" onclick="copyScript('script1')">Copy</button>
+                <pre id="script1">loadstring(game:HttpGet("https://raw.githubusercontent.com/yourusername/your-repo/main/autofarm.lua"))()</pre>
+            </div>
+        </div>
+
+        <!-- SCRIPT 2 -->
+        <div class="script-card">
+            <h2 class="script-title">✨ ESP & Aimbot Script</h2>
+            <p class="script-desc">Universal FPS script for combat and shooter games.</p>
+            
+            <div class="code-box">
+                <button class="copy-btn" onclick="copyScript('script2')">Copy</button>
+                <pre id="script2">loadstring(game:HttpGet("https://raw.githubusercontent.com/yourusername/your-repo/main/esp.lua"))()</pre>
+            </div>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>Created with GitHub Pages • Always test scripts in alt accounts first.</p>
+    </footer>
+
+    <script>
+        function copyScript(id) {
+            const code = document.getElementById(id).innerText;
+            navigator.clipboard.writeText(code).then(() => {
+                alert("Script copied to clipboard!");
+            }).catch(err => {
+                console.error("Failed to copy script: ", err);
+            });
+        }
+    </script>
+
 </body>
 </html>
