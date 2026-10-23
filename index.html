@@ -17,8 +17,14 @@
         }
 
         body {
-            background-color: #0b0c10;
-            color: #c5c6c7;
+            background-color: #0d0b14;
+            /* Subtle dark purple radial background gradient with grid pattern */
+            background-image: 
+                radial-gradient(circle at 50% 0%, #201335 0%, #0d0b14 70%),
+                linear-gradient(rgba(147, 51, 234, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(147, 51, 234, 0.03) 1px, transparent 1px);
+            background-size: 100% 100%, 30px 30px, 30px 30px;
+            color: #d1c4e9;
             padding: 20px;
             display: flex;
             flex-direction: column;
@@ -37,7 +43,8 @@
         .brand-title {
             font-size: 3rem;
             font-weight: 900;
-            color: #66fcf1;
+            color: #bd93f9;
+            text-shadow: 0 0 20px rgba(189, 147, 249, 0.3);
             letter-spacing: 2px;
             text-transform: uppercase;
             margin-bottom: 12px;
@@ -57,8 +64,8 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            background-color: #1f2833;
-            border: 1px solid #45a29e;
+            background-color: #171226;
+            border: 1px solid #483270;
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 0.85rem;
@@ -78,13 +85,13 @@
 
         /* COUNTER BUBBLE */
         .execution-counter {
-            background-color: #1f2833;
-            border: 1px solid #333;
+            background-color: #171226;
+            border: 1px solid #362654;
             padding: 6px 14px;
             border-radius: 20px;
             font-size: 0.85rem;
             font-weight: 600;
-            color: #66fcf1;
+            color: #bd93f9;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -112,14 +119,14 @@
         }
 
         .btn-primary {
-            background-color: #66fcf1;
-            color: #0b0c10;
+            background-color: #8be9fd;
+            color: #0d0b14;
         }
 
         .btn-primary:hover {
-            background-color: #45a29e;
+            background-color: #a78bfa;
             color: #ffffff;
-            box-shadow: 0 0 15px rgba(102, 252, 241, 0.4);
+            box-shadow: 0 0 15px rgba(167, 139, 250, 0.4);
         }
 
         .btn-discord {
@@ -143,7 +150,7 @@
             font-size: 1.5rem;
             color: #ffffff;
             margin-bottom: 20px;
-            border-bottom: 2px solid #1f2833;
+            border-bottom: 2px solid #231938;
             padding-bottom: 8px;
             text-transform: uppercase;
             letter-spacing: 1px;
@@ -151,11 +158,12 @@
 
         /* SCRIPT CARDS */
         .script-card {
-            background-color: #1f2833;
-            border: 1px solid #2c3e50;
+            background-color: #151020;
+            border: 1px solid #2d2145;
             border-radius: 8px;
             padding: 20px;
             margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
         }
 
         .script-title {
@@ -165,7 +173,7 @@
         }
 
         .script-desc {
-            color: #c5c6c7;
+            color: #b3a5d0;
             font-size: 0.9rem;
             margin-bottom: 15px;
             line-height: 1.4;
@@ -173,15 +181,15 @@
 
         .code-box {
             position: relative;
-            background-color: #0b0c10;
+            background-color: #09070e;
             border-radius: 6px;
             padding: 15px;
-            border: 1px solid #111;
+            border: 1px solid #1a1329;
         }
 
         pre {
             font-family: 'Consolas', 'Courier New', monospace;
-            color: #66fcf1;
+            color: #bd93f9;
             font-size: 0.85rem;
             white-space: pre-wrap;
             word-break: break-all;
@@ -192,7 +200,7 @@
             position: absolute;
             top: 10px;
             right: 10px;
-            background-color: #45a29e;
+            background-color: #483270;
             color: #ffffff;
             border: none;
             padding: 8px 14px;
@@ -201,12 +209,12 @@
             font-weight: bold;
             cursor: pointer;
             text-transform: uppercase;
-            transition: background 0.2s;
+            transition: all 0.2s;
         }
 
         .copy-btn:hover {
-            background-color: #66fcf1;
-            color: #0b0c10;
+            background-color: #a78bfa;
+            color: #0d0b14;
         }
 
         /* FOOTER */
@@ -214,7 +222,7 @@
             margin-top: auto;
             padding: 40px 0 20px 0;
             text-align: center;
-            color: #666;
+            color: #5d5178;
             font-size: 0.85rem;
             letter-spacing: 0.5px;
             text-transform: uppercase;
@@ -284,7 +292,7 @@
 
                 setTimeout(() => {
                     button.innerText = originalText;
-                    button.style.backgroundColor = "#45a29e";
+                    button.style.backgroundColor = "#483270";
                     button.style.color = "#ffffff";
                 }, 2000);
             }).catch(err => {
