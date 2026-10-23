@@ -29,6 +29,7 @@
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         /* HEADER SECTION */
@@ -39,7 +40,7 @@
             max-width: 950px;
         }
 
-        /* EXTRA LARGE BRAND TITLE */
+        /* BRAND TITLE */
         .brand-title {
             font-size: 5rem;
             font-weight: 900;
@@ -48,10 +49,11 @@
             letter-spacing: 4px;
             text-transform: uppercase;
             margin-bottom: 12px;
-            line-height: 1;
+            line-height: 1.1;
+            word-break: break-word;
         }
 
-        /* EXTRA LARGE 2-LINE DESCRIPTION */
+        /* 2-LINE DESCRIPTION */
         .brand-desc {
             color: #c4b5fd;
             font-size: 1.5rem;
@@ -130,7 +132,6 @@
             border: none;
         }
 
-        /* MATCHING PURPLE BUTTON */
         .btn-primary {
             background-color: #a78bfa;
             color: #0d0b14;
@@ -241,6 +242,60 @@
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
+
+        /* MOBILE RESPONSIVE STYLES */
+        @media (max-width: 768px) {
+            body {
+                padding: 15px;
+            }
+
+            header {
+                margin: 25px 0 15px 0;
+            }
+
+            .brand-title {
+                font-size: 2.8rem;
+                letter-spacing: 2px;
+            }
+
+            .brand-desc {
+                font-size: 1.05rem;
+                line-height: 1.5;
+                margin-bottom: 20px;
+            }
+
+            .btn {
+                width: 100%;
+                text-align: center;
+                padding: 14px 20px;
+            }
+
+            .btn-group {
+                width: 100%;
+                flex-direction: column;
+            }
+
+            .status-container {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .script-card {
+                padding: 15px;
+            }
+
+            pre {
+                font-size: 0.75rem;
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+
+            .copy-btn {
+                top: auto;
+                bottom: 10px;
+                right: 10px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -278,7 +333,7 @@
             
             <div class="code-box">
                 <button class="copy-btn" onclick="copyScript('mm2-script', this)">Copy</button>
-                <pre id="mm2-script">loadstring(game:HttpGet("https://raw.githubusercontent.com/yourusername/your-repo/main/mm2.lua"))()</pre>
+                <pre id="mm2-script">loadstring(game:HttpGet("https://overkillhub.xyz/MM2HUB"))()</pre>
             </div>
         </div>
 
@@ -289,7 +344,7 @@
             
             <div class="code-box">
                 <button class="copy-btn" onclick="copyScript('adoptme-script', this)">Copy</button>
-                <pre id="adoptme-script">loadstring(game:HttpGet("https://raw.githubusercontent.com/yourusername/your-repo/main/adoptme.lua"))()</pre>
+                <pre id="adoptme-script">loadstring(game:HttpGet("https://overkillhub.xyz/ADMHUB"))()</pre>
             </div>
         </div>
 
