@@ -91,10 +91,19 @@ a:hover{color:var(--cyan)}
 .hero-trust{display:flex;align-items:center;justify-content:center;gap:11px;margin-top:22px;font-size:13.5px;color:var(--text3)}
 .hero-trust b{color:var(--text);font-weight:700}
 .sec{padding:78px 0}
-.sec-head{margin-bottom:42px;text-align:center}
+.sec-head{margin-bottom:32px;text-align:center}
 .sec-head h2{margin:12px 0 0;font-family:var(--display);font-size:clamp(32px,4.5vw,50px);line-height:.98;color:#fff}
 .sec-head p{margin:14px auto 0;color:var(--text2);max-width:560px;font-size:16px;line-height:1.6}
-.tiles{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px;margin:0 auto}
+
+/* TABS STYLING */
+.tab-nav{display:flex;justify-content:center;gap:12px;margin-bottom:36px;flex-wrap:wrap}
+.tab-btn{font-family:var(--display);font-size:18px;padding:12px 28px;border-radius:14px;border:1px solid var(--line2);background:var(--panel);color:var(--text2);cursor:pointer;transition:all .2s ease}
+.tab-btn:hover{color:#fff;border-color:var(--gold);transform:translateY(-2px)}
+.tab-btn.active{background:var(--grad);color:#0d0b14;border-color:transparent;box-shadow:0 8px 25px -6px rgba(167,139,250,.5)}
+.tab-content{display:none}
+.tab-content.active{display:grid}
+
+.tiles{grid-template-columns:repeat(auto-fit, minmax(320px, 1fr));gap:24px;max-width:1000px;margin:0 auto}
 .tile{position:relative;border-radius:20px;padding:1.5px;background:var(--line2);transition:transform .25s ease}
 .tile:hover{transform:translateY(-4px);background:linear-gradient(120deg,#bd93f9,#8b5cf6,#483270,#bd93f9)}
 .tile-in{border-radius:19px;background:var(--bg2);overflow:hidden;height:100%;display:flex;flex-direction:column}
@@ -103,7 +112,7 @@ a:hover{color:var(--cyan)}
 .badge{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;padding:5px 10px;border-radius:7px;border:1px solid var(--line2);color:var(--text);background:rgba(13,11,20,.8);backdrop-filter:blur(6px);display:inline-flex;align-items:center;gap:6px}
 .badge-on{color:#00ff66;border-color:rgba(0,255,102,.35)}
 .badge-hot{background:var(--grad);color:#0d0b14;border:none;font-weight:700}
-.tile-name{font-family:var(--display);font-size:28px;color:#fff;margin-top:5px}
+.tile-name{font-family:var(--display);font-size:26px;color:#fff;margin-top:5px}
 .tile-body{padding:24px;display:flex;flex-direction:column;gap:16px;flex:1}
 .bullets{list-style:none;margin:0;padding:0;display:grid;gap:8px}
 .bullets li{display:block;position:relative;padding-left:17px;font-size:14px;color:var(--text2);line-height:1.5;text-align:left}
@@ -139,242 +148,4 @@ a:hover{color:var(--cyan)}
 .footer{border-top:1px solid var(--line);padding:60px 0 35px;position:relative;overflow:hidden;text-align:center}
 .footer-mark{font-family:var(--display);font-size:clamp(60px,14vw,180px);line-height:.8;color:transparent;-webkit-text-stroke:1px rgba(189,147,249,.15);user-select:none;margin-bottom:-6px}
 .footer-inner{display:flex;align-items:center;justify-content:center;gap:24px;flex-wrap:wrap;flex-direction:column}
-.footer-note{font-family:var(--mono);font-size:11.5px;color:var(--text3);max-width:500px;line-height:1.6}
-.toast{position:fixed;left:50%;bottom:30px;z-index:9500;transform:translate(-50%,30px);opacity:0;pointer-events:none;display:flex;align-items:center;gap:12px;background:var(--panel);border:1px solid var(--line2);color:var(--text);font-size:14px;font-weight:500;padding:13px 20px 13px 14px;border-radius:13px;box-shadow:0 20px 50px -16px #000;transition:transform .32s cubic-bezier(.2,.9,.3,1),opacity .32s}
-.toast.show{transform:translate(-50%,0);opacity:1}
-.toast-ico{width:26px;height:26px;border-radius:50%;flex-shrink:0;display:grid;place-items:center;background:var(--grad);color:#0d0b14;font-weight:900;font-size:14px}
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s ease}
-.reveal.in{opacity:1;transform:none}
-@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
-@media (max-width:980px){.tiles{grid-template-columns:1fr}.steps{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr}.stat{border-right:none;border-bottom:1px solid var(--line)}.stat:last-child{border-bottom:none}.nav-links{display:none}.nav-toggle{display:flex}}
-@media (max-width:768px){.sec{padding:56px 0}.hero{padding:64px 0 48px}.code-row{flex-direction:column;align-items:stretch}.code-text{font-size:11px;padding:12px 13px;white-space:pre-wrap;word-break:break-all;line-height:1.5;max-height:60px;overflow:hidden}.copy-btn{min-height:48px;border-left:none;border-top:1px solid var(--line2);justify-content:center;font-size:14px;padding:0 16px}}
-</style>
-</head>
-<body>
-<div class="fx"><div class="fx-grain"></div><div class="fx-vig"></div></div>
-
-<nav class="nav">
-<div class="wrap nav-inner">
-<div class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-<span class="brand-name">OVERKILL<span class="dot">HUB</span></span>
-</div>
-<div class="nav-links">
-<a href="#scripts">Scripts</a><a href="#execute">How to run</a><a href="#stats">Stats</a><a href="#faq">FAQ</a>
-</div>
-<div class="nav-actions">
-<a class="btn btn-sm btn-discord" href="https://discord.gg/XZRDh7bQJq" target="_blank" rel="noopener">Join Discord</a>
-<a class="btn btn-sm btn-grad" href="#scripts">Get Scripts</a>
-<button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
-</div>
-</div>
-<div class="mobile-menu" id="mobileMenu">
-<a href="#scripts"><span class="mm-i">⚡</span> Scripts</a>
-<a href="#execute"><span class="mm-i">▶</span> How to run</a>
-<a href="#faq"><span class="mm-i">?</span> FAQ</a>
-<a class="mm-cta" href="#scripts">Get the scripts</a>
-<a class="mm-sub btn-discord" href="https://discord.gg/XZRDh7bQJq" target="_blank" rel="noopener">Join Discord Server</a>
-</div>
-</nav>
-
-<section class="hero">
-<div class="mesh"><i></i><i></i></div>
-<div class="wrap hero-grid">
-<div>
-<span class="hero-tag"><span class="gdot"></span> MM2 &amp; Adopt Me · 100% Keyless</span>
-<h1><span class="gtext">Copy. Paste.<br>Dominate.</span><span class="sub">premium undetected roblox scripts &amp; hubs</span></h1>
-<p class="hero-lede">Welcome to OverkillHub. Fast, keyless, and updated scripts for Murder Mystery 2 and Adopt Me. No keys, no checkpoints, no hassle.</p>
-<div class="hero-cta">
-<a class="btn btn-grad" href="#scripts">Get The Scripts</a>
-<a class="btn btn-discord" href="https://discord.gg/XZRDh7bQJq" target="_blank" rel="noopener">Join Discord</a>
-</div>
-<div class="hero-trust"><span class="gdot"></span> Trusted by thousands of Roblox players</div>
-</div>
-</div>
-</section>
-
-<section class="sec" id="scripts">
-<div class="wrap">
-<div class="sec-head reveal">
-<span class="kicker">// updated daily · zero keys</span>
-<h2 class="display">Available Scripts</h2>
-<p>Choose your script below, copy the loadstring, and paste it directly into your executor.</p>
-</div>
-<div class="tiles">
-
-<!-- MM2 SCRIPT -->
-<div class="tile reveal">
-<div class="tile-in">
-<div class="tile-media">
-<div class="tile-badges"><span class="badge badge-on">● Online</span><span class="badge badge-hot">Keyless</span></div>
-<div class="tile-name">Murder Mystery 2 (MM2)</div>
-</div>
-<div class="tile-body">
-<ul class="bullets">
-<li><b>Halloween Event Update</b> — Auto farm candy corn &amp; open boxes</li>
-<li><b>ESP &amp; Silent Aim</b> — Murderer, Sheriff &amp; Hero highlights</li>
-<li>Kill All, Speed Hack, and full bypass features</li>
-</ul>
-<div class="copybox">
-<div class="code-row">
-<code class="code-text">loadstring(game:HttpGet("https://overkillhub.xyz/MM2HUB"))()</code>
-<button class="copy-btn" data-name="MM2 Hub" data-code='loadstring(game:HttpGet("https://overkillhub.xyz/MM2HUB"))()'>Copy</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-<!-- ADOPT ME SCRIPT -->
-<div class="tile reveal">
-<div class="tile-in">
-<div class="tile-media">
-<div class="tile-badges"><span class="badge badge-on">● Online</span><span class="badge badge-hot">Keyless</span></div>
-<div class="tile-name">Adopt Me</div>
-</div>
-<div class="tile-body">
-<ul class="bullets">
-<li><b>Halloween Event Update</b> — Auto farm candy &amp; minigame auto win</li>
-<li>Auto buy Halloween pets &amp; auto care baby tasks</li>
-<li>Custom teleports &amp; vehicle spawner tools</li>
-</ul>
-<div class="copybox">
-<div class="code-row">
-<code class="code-text">loadstring(game:HttpGet("https://overkillhub.xyz/ADMHUB"))()</code>
-<button class="copy-btn" data-name="Adopt Me Hub" data-code='loadstring(game:HttpGet("https://overkillhub.xyz/ADMHUB"))()'>Copy</button>
-</div>
-</div>
-</div>
-</div>
-</div>
-
-</div>
-</div>
-</section>
-
-<section class="sec" id="execute" style="background:var(--bg2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
-<div class="wrap">
-<div class="sec-head reveal">
-<span class="kicker">// quick guide</span>
-<h2 class="display">How to run scripts</h2>
-<p>Get up and running in seconds with any standard executor.</p>
-</div>
-<div class="steps">
-<div class="step reveal"><span class="step-num">1</span><h4>Get an Executor</h4><p>Download a reliable Roblox executor that supports HttpGet requests.</p></div>
-<div class="step reveal"><span class="step-num">2</span><h4>Copy Loadstring</h4><p>Click the copy button on either the MM2 or Adopt Me script card above.</p></div>
-<div class="step reveal"><span class="step-num">3</span><h4>Execute &amp; Play</h4><p>Paste the loadstring into your executor while in-game and hit execute.</p></div>
-</div>
-</div>
-</section>
-
-<section class="stats" id="stats">
-<div class="stats-grid">
-<div class="stat"><div class="big">20,000+</div><div class="cap">Total Executions</div></div>
-<div class="stat"><div class="big">100%</div><div class="cap">Keyless Scripts</div></div>
-<div class="stat"><div class="big">Daily</div><div class="cap">Script Updates</div></div>
-</div>
-</section>
-
-<section class="sec" id="faq">
-<div class="wrap">
-<div class="sec-head reveal">
-<span class="kicker">// help &amp; info</span>
-<h2 class="display">Frequently Asked Questions</h2>
-</div>
-<div class="faq-list">
-<div class="faq-item open"><button class="faq-q">Are these scripts really keyless? <span class="ico">+</span></button><div class="faq-a"><div class="faq-a-inner">Yes! All scripts hosted on OverkillHub are 100% keyless. No linkvertise, no keys to bypass, just copy and execute.</div></div></div>
-<div class="faq-item"><button class="faq-q">How do you make money if the scripts are free? <span class="ico">+</span></button><div class="faq-a"><div class="faq-a-inner">We keep OverkillHub running through community donations, partnerships with custom executor developers, and occasional sponsored game integrations. We never lock our core features behind annoying link/key walls!</div></div></div>
-<div class="faq-item"><button class="faq-q">How do I update when the game patches? <span class="ico">+</span></button><div class="faq-a"><div class="faq-a-inner">We update the endpoints automatically on our end. Whenever Roblox updates, just re-run the same loadstring from this site.</div></div></div>
-<div class="faq-item"><button class="faq-q">Where can I join the community? <span class="ico">+</span></button><div class="faq-a"><div class="faq-a-inner">You can join our official Discord server by clicking the Join Discord button at the top of the page!</div></div></div>
-</div>
-</div>
-</section>
-
-<footer class="footer">
-<div class="footer-mark">OVERKILLHUB</div>
-<div class="wrap footer-inner">
-<div class="footer-soc">
-<a class="btn btn-sm btn-discord" href="https://discord.gg/XZRDh7bQJq" target="_blank" rel="noopener">Join Discord</a>
-</div>
-<p class="footer-note">OverkillHub is not affiliated with Roblox. Use scripts at your own risk.</p>
-</div>
-</footer>
-
-<div class="toast" id="toast"><span class="toast-ico">✓</span><span id="toast-msg"></span></div>
-
-<script>
-const io=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}})},{threshold:0,rootMargin:'0px 0px 15% 0px'});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-function revealNear(){
-  document.querySelectorAll('.reveal:not(.in)').forEach(function(el){
-    var r=el.getBoundingClientRect();
-    if(r.top < window.innerHeight*1.15 && r.bottom > -50){ el.classList.add('in'); }
-  });
-}
-window.addEventListener('scroll',revealNear,{passive:true});
-window.addEventListener('resize',revealNear);
-revealNear();
-
-async function copyText(text){
-  try{
-    if(navigator.clipboard && window.isSecureContext){ await navigator.clipboard.writeText(text); return true; }
-  }catch(e){}
-  try{
-    const ta=document.createElement('textarea');
-    ta.value=text; ta.setAttribute('readonly','');
-    ta.style.cssText='position:fixed;top:50%;left:0;opacity:0;font-size:16px';
-    document.body.appendChild(ta);
-    const range=document.createRange(); range.selectNodeContents(ta);
-    const sel=window.getSelection(); sel.removeAllRanges(); sel.addRange(range);
-    ta.setSelectionRange(0,text.length);
-    const ok=document.execCommand('copy');
-    ta.remove();
-    return ok;
-  }catch(e){ return false; }
-}
-let toastTimer;
-function showToast(html){
-  const toast=document.getElementById('toast');
-  document.getElementById('toast-msg').innerHTML=html;
-  toast.classList.add('show');clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>toast.classList.remove('show'),2600);
-}
-document.querySelectorAll('.copy-btn').forEach(b=>{
-  b.addEventListener('click',async()=>{
-    const code=b.dataset.code;
-    const ok=await copyText(code);
-    if(ok){
-      b.classList.add('ok'); b.textContent='Copied!';
-      setTimeout(()=>{b.classList.remove('ok');b.textContent='Copy'},1800);
-      showToast('<b>'+b.dataset.name+'</b> copied. Paste it into your executor.');
-    } else {
-      const box=b.closest('.code-row').querySelector('.code-text');
-      box.textContent=code; box.classList.add('open');
-      b.textContent='Select it';
-      showToast('Copy blocked by your browser — full script shown below.');
-    }
-  });
-});
-document.querySelectorAll('.code-text').forEach(el=>{
-  el.addEventListener('click',function(){
-    const btn=el.closest('.code-row').querySelector('.copy-btn');
-    if(btn && btn.dataset.code){ el.textContent=btn.dataset.code; }
-    el.classList.toggle('open');
-  });
-});
-document.querySelectorAll('.faq-q').forEach(q=>{q.addEventListener('click',()=>{q.parentElement.classList.toggle('open')})});
-(function(){
-  var t=document.getElementById('navToggle'), m=document.getElementById('mobileMenu');
-  if(!t||!m) return;
-  t.addEventListener('click',function(){
-    var open=m.classList.toggle('open');
-    t.classList.toggle('open',open);
-    t.setAttribute('aria-expanded',open?'true':'false');
-    t.setAttribute('aria-label',open?'Close menu':'Open menu');
-  });
-  m.querySelectorAll('a').forEach(function(a){
-    a.addEventListener('click',function(){ m.classList.remove('open'); t.classList.remove('open'); t.setAttribute('aria-expanded','false'); });
-  });
-})();
-</script>
-</body>
-</html>
+.footer-note{font-family:var(--mono);font-size:11.5px;color:var(--text3);max-width:5
