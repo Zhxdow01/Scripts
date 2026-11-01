@@ -376,14 +376,24 @@ function showToast(html){
   toast.classList.add('show');clearTimeout(toastTimer);
   toastTimer=setTimeout(()=>toast.classList.remove('show'),2600);
 }
+
+// COPY EVENT WITH GA4 TRACKING
 document.querySelectorAll('.copy-btn').forEach(b=>{
   b.addEventListener('click',async()=>{
-    const code=b.dataset.code;
-    const ok=await copyText(code);
+    const scriptName = b.dataset.name;
+    const code = b.dataset.code;
+    const ok = await copyText(code);
     if(ok){
       b.classList.add('ok'); b.textContent='Copied!';
       setTimeout(()=>{b.classList.remove('ok');b.textContent='Copy'},1800);
-      showToast('<b>'+b.dataset.name+'</b> copied. Paste it into your executor.');
+      showToast('<b>'+scriptName+'</b> copied. Paste it into your executor.');
+
+      // Google Analytics Event Trigger
+      if(typeof gtag === 'function'){
+        gtag('event', 'script_copied', {
+          'script_name': scriptName
+        });
+      }
     } else {
       const box=b.closest('.code-row').querySelector('.code-text');
       box.textContent=code; box.classList.add('open');
@@ -392,6 +402,7 @@ document.querySelectorAll('.copy-btn').forEach(b=>{
     }
   });
 });
+
 document.querySelectorAll('.code-text').forEach(el=>{
   el.addEventListener('click',function(){
     const btn=el.closest('.code-row').querySelector('.copy-btn');
